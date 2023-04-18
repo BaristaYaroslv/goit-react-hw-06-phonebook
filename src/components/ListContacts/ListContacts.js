@@ -3,7 +3,7 @@ import { getContacts, getFilter } from 'reduxe/selectors';
 
 import { ContactList } from './ListContacts.styled';
 import Contact from 'components/Contact/Contact';
-import EditContact from 'components/EditContact/EditContact';
+// import EditContact from 'components/EditContact/EditContact';
 
 const ListContacts = () => {
   const contacts = useSelector(getContacts);
@@ -16,14 +16,21 @@ const ListContacts = () => {
   return (
     <ContactList>
       {visibleContacts.map(contact => {
-        if (!contact.edit) {
-          return <Contact key={contact.id} contact={contact} />;
-        } else {
-          return <EditContact key={contact.id} contact={contact} />;
-        }
+        return <Contact key={contact.id} contact={contact} />;
       })}
     </ContactList>
   );
 };
+// return (
+//     <ContactList>
+//       {visibleContacts.map(contact => {
+//         if (!contact.edit) {
+//           return <Contact key={contact.id} contact={contact} />;
+//         } else {
+//           return <EditContact key={contact.id} contact={contact} />;
+//         }
+//       })}
+//     </ContactList>
+//   );
 
 export default ListContacts;

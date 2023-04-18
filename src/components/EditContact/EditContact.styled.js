@@ -24,12 +24,12 @@ export const Input = styled.input`
 
 export const SubmitButton = styled.button`
   font-size: 1rem;
-  padding: 0.3rem 0.6rem;
+  padding: 0.5rem 1rem;
   border: none;
   border-radius: 3px;
   background-color: #007bff;
   color: #fff;
-  margin-top: 1rem;
+  
   cursor: pointer;
   margin-left:0.5rem;
   
