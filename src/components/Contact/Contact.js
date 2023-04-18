@@ -16,7 +16,7 @@ const Contact = ({ contact }) => {
 
   const handlerEdit = () => {
     setEditContact(!editContact);
-    dispatcher(editContact(contact.id));
+    // dispatcher(editContact(contact.id));
   };
 
   return (
@@ -27,13 +27,11 @@ const Contact = ({ contact }) => {
         Delete
       </DeleteButton>
       {editContact && (
-      <EditContact key={contact.id} contact={contact} />
-    )}
+      <EditContact key={contact.id} contact={contact} />)}
       <EditButton type="button" onClick={handlerEdit}>
         {editContact ? 'Cancel' : 'Edit'}
       </EditButton>
     </WrapContact>
-    
   );
 };
 

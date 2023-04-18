@@ -34,7 +34,7 @@ const EditContact = ({ contact }) => {
       })
     );
   };
-
+  
   const onChangeName = event => {
     setNewName(event.target.value);
   };
