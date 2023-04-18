@@ -11,7 +11,7 @@ const contactsInitialState = [
 ];
 
 const contactsSlice = createSlice({
-  name: 'allContacts',
+  name: 'contacts',
   initialState: { contacts: contactsInitialState },
   reducers: {
     addContact: {
@@ -31,25 +31,47 @@ const contactsSlice = createSlice({
       );
     },
 
+    // editContact(state, action) {
+    //   for (const contact of state.contacts) {
+    //     if (contact.id === action.payload) {
+    //       contact.edit = !contact.edit;
+    //       break;
+    //     }
+    //   }
+    // },
+
     editContact(state, action) {
-      for (const contact of state.contacts) {
-        if (contact.id === action.payload) {
-          contact.edit = !contact.edit;
-          break;
+      state.contacts = state.contacts.map(contact => {
+       if (contact.id === action.payload) {
+         return { ...contact, edit: !contact.edit };
         }
-      }
+        return contact;
+      });
     },
 
+    // saveContact(state, action) {
+    //   for (const contact of state.contacts) {
+    //     if (contact.id === action.payload.id) {
+    //       contact.name = action.payload.name;
+    //       contact.number = action.payload.number;
+    //       contact.edit = !contact.edit;
+    //       break;
+    //     }
+    //   }
+    // },
     saveContact(state, action) {
-      for (const contact of state.contacts) {
-        if (contact.id === action.payload.id) {
-          contact.name = action.payload.name;
-          contact.number = action.payload.number;
-          contact.edit = !contact.edit;
-          break;
-        }
-      }
-    },
+  state.contacts = state.contacts.map(contact => {
+    if (contact.id === action.payload.id) {
+      return {
+        ...contact,
+        name: action.payload.name,
+        number: action.payload.number,
+        edit: !contact.edit,
+      };
+    }
+    return contact;
+  });
+},
   },
 });
 

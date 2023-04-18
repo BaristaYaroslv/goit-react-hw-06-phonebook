@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { Form, Label } from './EditContact.styled';
+import { Form, Label, SubmitButton, CancelButton, Input } from './EditContact.styled';
 import { saveContact, editContact } from 'reduxe/sliceContacts';
 import { getContacts } from 'reduxe/selectors';
 import { useState } from 'react';
@@ -51,7 +51,7 @@ const EditContact = ({ contact }) => {
     <Form onSubmit={handlerSave}>
       <Label htmlFor="userName">
         New name:
-        <input
+        <Input
           type="text"
           placeholder="Enter user name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -65,7 +65,7 @@ const EditContact = ({ contact }) => {
 
       <Label htmlFor="numberPhone">
         New number:
-        <input
+        <Input
           type="tel"
           name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -75,10 +75,10 @@ const EditContact = ({ contact }) => {
           onChange={onChangeNumber}
         />
       </Label>
-      <button type="submit">Save</button>
-      <button type="button" onClick={handlerCancel}>
+      <SubmitButton type="submit">Save</SubmitButton>
+      <CancelButton type="button"onClick={handlerCancel}>
         Cancel
-      </button>
+      </CancelButton>
     </Form>
   );
 };
