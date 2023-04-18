@@ -12,7 +12,7 @@ const findContactByNameAndId = (contacts, userName, id) => {
   );
 };
 
-const EditContact = ({ contact }) => {
+const EditContact = ({ contact, handlerEdit} ) => {
   const contacts = useSelector(getContacts);
   const dispatcher = useDispatch();
   const [newName, setNewName] = useState(contact.name);
@@ -25,7 +25,7 @@ const EditContact = ({ contact }) => {
       alert(`${newName} is already in contacts`);
       return;
     }
-
+    handlerEdit();
     dispatcher(
       saveContact({
         id: contact.id,

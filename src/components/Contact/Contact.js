@@ -15,7 +15,7 @@ const Contact = ({ contact }) => {
   };
 
   const handlerEdit = () => {
-    setEditContact(!editContact);
+    setEditContact(prevState => !prevState);
     // dispatcher(editContact(contact.id));
   };
 
@@ -27,7 +27,7 @@ const Contact = ({ contact }) => {
         Delete
       </DeleteButton>
       {editContact && (
-      <EditContact key={contact.id} contact={contact} />)}
+        <EditContact key={contact.id} contact={contact} handlerEdit={handlerEdit} />)}
       <EditButton type="button" onClick={handlerEdit}>
         {editContact ? 'Cancel' : 'Edit'}
       </EditButton>
